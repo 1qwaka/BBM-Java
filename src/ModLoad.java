@@ -1,3 +1,4 @@
+import content.ModBlocks;
 import mindustry.mod.Mod;
 
 public class ModLoad extends Mod{
@@ -7,5 +8,7 @@ public class ModLoad extends Mod{
 	@Override
 	public void loadContent(){
 		super.loadContent();
+		ModBlocks mb = new ModBlocks();
+		mb.load();
 	}
 }
