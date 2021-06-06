@@ -15,6 +15,7 @@ public class ModBlocks implements ContentList{
 		Teleporter teleporter = new Teleporter("teleporter") {{
 			health = 100;
 			update = true;
+			configurable = true;
 			requirements(Category.distribution, ItemStack.with(Items.phaseFabric, 5, Items.silicon, 7, Items.lead, 10, Items.graphite, 10));
 		}};
 		
