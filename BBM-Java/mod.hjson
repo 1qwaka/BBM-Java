@@ -1,0 +1,8 @@
+name: "mimatomics"
+displayName: "BBM-Mod-Java"
+author: "Easy Play"
+main: "ModLoad"
+description: "Mod for playing on the EasyPlay server"
+version: 1.0
+minGameVersion: 105
+
