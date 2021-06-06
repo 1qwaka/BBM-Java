@@ -1,6 +1,9 @@
 package blocks;
 
+import java.util.Arrays;
+
 import arc.struct.Seq;
+import arc.util.Log;
 import mindustry.gen.Building;
 import mindustry.world.Block;
 
@@ -35,6 +38,8 @@ public class Teleporter extends Block{
 		}
 		@Override
 		public void update(){
+			Log.info(link);
+			Log.info(Arrays.toString(b.items));
 	}
 	}
 }
