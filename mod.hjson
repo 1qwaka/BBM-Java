@@ -1,4 +1,4 @@
-name: "mimatomics"
+name: "mod"
 displayName: "BBM-Mod-Java"
 author: "Easy Play"
 main: "ModLoad"

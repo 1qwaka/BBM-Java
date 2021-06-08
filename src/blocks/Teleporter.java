@@ -1,19 +1,17 @@
 package blocks;
 
-import java.util.Arrays;
-
 import arc.math.Mathf;
 import arc.struct.Seq;
-import arc.util.Log;
 import arc.util.Time;
 import mindustry.Vars;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
+import mindustry.type.Item;
 import mindustry.world.Block;
 
 public class Teleporter extends Block{
-
+	public int linkRotation;
 	public Teleporter(String name) {
 		super(name);
 		config(Integer.class, (TelepolterBuild tile, Integer point) ->{
@@ -42,8 +40,14 @@ public class Teleporter extends Block{
 		}
 		@Override
 		public void update(){
-			Log.info(Arrays.toString(b.items));
-	}
+		for(int i = 0; i < b.size; i++){
+		linkRotation = (linkRotation+i)%b.size;
+		TelepolterBuild to = (TelepolterBuild) Vars.world.build(b.get(linkRotation));
+		if(to.acceptItem(this,items.first())){
+		to.handleItem(this,items.first());
+		}
+		}
+		}
 		@Override
 		public void drawConfigure(){
 			super.drawConfigure();
@@ -51,8 +55,18 @@ public class Teleporter extends Block{
 		    Drawf.circles(this.x, this.y, (this.block.size / 2 + 1) * Vars.tilesize + sin - 2);
 		    for(int i = 0; i< b.size; i++) {
 		    	Building build =  Vars.world.build(b.get(i));
-		    	 Drawf.circles(build.x, build.y, (build.block.size / 2 + 1) * Vars.tilesize + sin - 2, Pal.place);
+		    	Drawf.circles(build.x, build.y, (build.block.size / 2 + 1) * Vars.tilesize + sin - 2, Pal.place);
 		    }
 		}
+		@Override
+		public void handleItem(Building source, Item item) {
+		if(b.size == 0){
+			super.handleItem(source, item);
+			return;
+		}
+		Vars.world.build(b.get(linkRotation)).handleItem(this, item);
+		linkRotation = (linkRotation+1)%b.size;
+		}
+		
 	}
 }
