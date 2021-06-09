@@ -3,6 +3,7 @@ package blocks;
 import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Time;
+import jdk.incubator.jpackage.internal.Log;
 import mindustry.Vars;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
@@ -43,9 +44,7 @@ public class Teleporter extends Block{
 			for(int i = 0; i < b.size; i++){
 				linkRotation = (linkRotation+1)%b.size;
 				Building build = Vars.world.build(b.get(linkRotation));
-				if(build.acceptItem(this,items.first())){
-					build.handleItem(this,items.first());
-				}
+				Log.info(String.valueOf(build));
 			}
 		}
 		@Override
