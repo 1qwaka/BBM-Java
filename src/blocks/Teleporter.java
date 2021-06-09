@@ -42,9 +42,9 @@ public class Teleporter extends Block{
 		public void update(){
 			for(int i = 0; i < b.size; i++){
 				linkRotation = (linkRotation+1)%b.size;
-				TelepolterBuild to = (TelepolterBuild) Vars.world.build(b.get(linkRotation));
-				if(to.acceptItem(this,items.first())){
-					to.handleItem(this,items.first());
+				Building build = Vars.world.build(b.get(linkRotation));
+				if(build.acceptItem(this,items.first())){
+					build.handleItem(this,items.first());
 				}
 			}
 		}
@@ -65,13 +65,12 @@ public class Teleporter extends Block{
 		}
 		@Override
 		public void handleItem(Building source, Item item) {
-		if(b.size == 0){
-			super.handleItem(source, item);
-			return;
+			if (b.size == 0) {
+				super.handleItem(source, item);
+				return;
+			}
+			Vars.world.build(b.get(linkRotation)).handleItem(this, item);
+			linkRotation = (linkRotation + 1) % b.size;
 		}
-		Vars.world.build(b.get(linkRotation)).handleItem(this, item);
-		linkRotation = (linkRotation+1)%b.size;
-		}
-		
 	}
 }
