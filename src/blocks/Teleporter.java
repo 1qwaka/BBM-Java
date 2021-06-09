@@ -49,6 +49,7 @@ public class Teleporter extends Block {
 				if (items.first() != null) {
 					if (build.acceptItem(this, items.first())) {
 						build.handleItem(this, items.first());
+						items.remove(items.first(), 1);
 					}
 				}
 			}
@@ -79,8 +80,8 @@ public class Teleporter extends Block {
 		}
 
 		@Override
-		public boolean acceptItem(Building source, Item item) {
-			return true;
+		public int getMaximumAccepted(Item item) {
+			return itemCapacity;
 		}
 	}
 }
