@@ -45,6 +45,12 @@ public class Teleporter extends Block{
 				linkRotation = (linkRotation+1)%b.size;
 				Building build = Vars.world.build(b.get(linkRotation));
 				Log.info(String.valueOf(build));
+				if(build != null){
+					Log.info(build.block.name);
+				} else {
+					Log.info("Build null");
+				}
+
 			}
 		}
 		@Override
