@@ -11,7 +11,7 @@ import mindustry.type.Item;
 import mindustry.world.Block;
 
 public class Teleporter extends Block{
-	public int linkRotation;
+	public int linkRotation = 0;
 	public Teleporter(String name) {
 		super(name);
 		config(Integer.class, (TelepolterBuild tile, Integer point) ->{
@@ -40,27 +40,27 @@ public class Teleporter extends Block{
 		}
 		@Override
 		public void update(){
-		for(int i = 0; i < b.size; i++){
-		linkRotation = (linkRotation+i)%b.size;
-		TelepolterBuild to = (TelepolterBuild) Vars.world.build(b.get(linkRotation));
-		if(to.acceptItem(this,items.first())){
-		to.handleItem(this,items.first());
-		}
-		}
+			for(int i = 0; i < b.size; i++){
+				linkRotation = (linkRotation+1)%b.size;
+				TelepolterBuild to = (TelepolterBuild) Vars.world.build(b.get(linkRotation));
+				if(to.acceptItem(this,items.first())){
+					to.handleItem(this,items.first());
+				}
+			}
 		}
 		@Override
 		public void drawConfigure(){
-		try{
-		super.drawConfigure();
-		float sin = Mathf.absin(Time.time, 6, 1);
-		Drawf.circles(this.x, this.y, (this.block.size / 2 + 1) * Vars.tilesize + sin - 2);
-		for(int i = 0; i< b.size; i++) {
-		Building build = Vars.world.build(b.get(i));
-		Drawf.circles(build.x, build.y, (build.block.size / 2 + 1) * Vars.tilesize + sin - 2, Pal.place);
-		}
-		} catch (Exception e){
+			try{
+				super.drawConfigure();
+				float sin = Mathf.absin(Time.time, 6, 1);
+				Drawf.circles(this.x, this.y, (this.block.size / 2 + 1) * Vars.tilesize + sin - 2);
+				for(int i = 0; i< b.size; i++) {
+					Building build = Vars.world.build(b.get(i));
+					Drawf.circles(build.x, build.y, (build.block.size / 2 + 1) * Vars.tilesize + sin - 2, Pal.place);
+				}
+			} catch (Exception e){
 
-		}
+			}
 
 		}
 		@Override
