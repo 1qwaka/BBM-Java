@@ -4,6 +4,7 @@ package blocks;
 import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Log;
+import arc.util.Nullable;
 import arc.util.Time;
 import mindustry.Vars;
 import mindustry.gen.Building;
@@ -80,8 +81,8 @@ public class Teleporter extends Block {
 		}
 
 		@Override
-		public boolean acceptItem(Building source, Item item) {
-			return true;
+		public boolean acceptItem(Building source, Item item){
+			return items.get(item) < getMaximumAccepted(item);
 		}
 	}
 }
