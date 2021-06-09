@@ -48,7 +48,7 @@ public class Teleporter extends Block{
 				if(build != null){
 					Log.info(build.block.name);
 				} else {
-					Log.info("Build null");
+					Log.info("Build null?");
 				}
 
 			}
