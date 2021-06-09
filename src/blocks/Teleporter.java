@@ -80,9 +80,7 @@ public class Teleporter extends Block {
 
 		@Override
 		public boolean acceptItem(Building source, Item item) {
-			if(itemCapacity >= 15){
-				return true;
-			} return false;
+			return true;
 		}
 	}
 }
