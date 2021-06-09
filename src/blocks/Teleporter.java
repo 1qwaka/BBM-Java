@@ -47,8 +47,8 @@ public class Teleporter extends Block {
 				linkRotation = (linkRotation + 1) % b.size;
 				Building build = Vars.world.build(b.get(linkRotation));
 				Log.info(String.valueOf(build));
-				if (items.first() != null) {
-					if (build.acceptItem(this, items.first())) {
+				if (items.first() != null && build != null) {
+					if (build.acceptItem(this, items.first()) && items.get(items.first()) < getMaximumAccepted(items.first())) {
 						build.handleItem(this, items.first());
 						items.remove(items.first(), 1);
 					}
