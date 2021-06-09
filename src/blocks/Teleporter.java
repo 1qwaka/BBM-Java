@@ -1,9 +1,10 @@
 package blocks;
 
+
 import arc.math.Mathf;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Time;
-import jdk.incubator.jpackage.internal.Log;
 import mindustry.Vars;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
@@ -11,7 +12,7 @@ import mindustry.graphics.Pal;
 import mindustry.type.Item;
 import mindustry.world.Block;
 
-public class Teleporter extends Block{
+public class Teleporter extends Block {
 	public int linkRotation = 0;
 	public Teleporter(String name) {
 		super(name);
@@ -19,7 +20,7 @@ public class Teleporter extends Block{
 			tile.addLink(point);
 		});
 		  };
-	public class TelepolterBuild extends Building{
+	public class TelepolterBuild extends Building {
 		Seq<Integer> b = new Seq<Integer>();
 		public void addLink(int point){
 			if(b.contains(point)){
