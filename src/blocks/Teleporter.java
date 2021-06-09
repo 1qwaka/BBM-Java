@@ -80,8 +80,8 @@ public class Teleporter extends Block {
 		}
 
 		@Override
-		public int getMaximumAccepted(Item item) {
-			return itemCapacity;
+		public boolean acceptItem(Building source, Item item) {
+			return true;
 		}
 	}
 }
