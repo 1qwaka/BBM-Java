@@ -54,6 +54,7 @@ public class Teleporter extends Block {
 					if (build.acceptItem(this, items.first())) {
 						build.handleItem(this, items.first());
 						items.remove(items.first(), 1);
+                                                Log.info("True");
 					}
 				}
 			}
