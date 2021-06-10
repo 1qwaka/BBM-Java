@@ -48,9 +48,11 @@ public class Teleporter extends Block {
 				Building build = Vars.world.build(b.get(linkRotation));
 				Log.info(String.valueOf(build));
 				if (items.first() != null && build != null) {
-					if (build.acceptItem(this, items.first()) && items.get(items.first()) < itemCapacity) {
+					if (build.acceptItem(this, items.first())) {
 						build.handleItem(this, items.first());
 						items.remove(items.first(), 1);
+						Log.info(build.items.first());
+						Log.info(items.get(build.items.first()));
 					}
 				}
 			}
