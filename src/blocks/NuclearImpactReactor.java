@@ -40,7 +40,7 @@ public class NuclearImpactReactor extends ImpactReactor {
         public void update() {
             super.update();
             ConsumeLiquid consumeLiquid = consumes.get(ConsumeType.liquid);
-            Item item = consumes.getItem().items[1].item;
+            Item item = consumes.getItem().items[0].item;
             int fuel = items.get(item);
             float t = size * 8 / 2f;
             float fullness = (float) fuel / itemCapacity;
