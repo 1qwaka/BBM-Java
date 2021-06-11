@@ -48,11 +48,12 @@ public class Teleporter extends Block {
 				if(items.first() != null) {
 					Log.info(build.items.first());
 					Log.info(items.get(build.items.first()));
-				}
+				} else { Log.info("Null");}
 				if (items.first() != null && build != null) {
 					if (build.acceptItem(this, items.first())) {
-						build.handleItem(this, items.first());
+						build.items.add(items.first(), 1);
 						items.remove(items.first(), 1);
+                                                Log.info("True");
 					}
 				}
 			}
