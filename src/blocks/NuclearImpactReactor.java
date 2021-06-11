@@ -3,7 +3,6 @@ package blocks;
 import arc.Events;
 import arc.math.Mathf;
 import content.FxMod;
-import mindustry.content.Liquids;
 import mindustry.entities.Damage;
 import mindustry.game.EventType;
 import mindustry.gen.Sounds;
