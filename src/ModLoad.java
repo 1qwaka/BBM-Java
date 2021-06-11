@@ -1,5 +1,6 @@
 import java.util.Locale.Category;
 
+import content.FxMod;
 import content.ModBlocks;
 import mindustry.content.Items;
 import mindustry.mod.Mod;
