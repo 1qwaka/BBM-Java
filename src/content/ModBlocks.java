@@ -28,6 +28,8 @@ public class ModBlocks implements ContentList{
 			consumes.power(12);
 			requirements(Category.power, ItemStack.with(Items.phaseFabric, 5, Items.silicon, 7, Items.lead, 10, Items.graphite, 10));
 			consumes.liquid(Liquids.cryofluid, heating / coolantPower).update(false);
+			powerProduction = 15;
+			size = 6;
 		}};
 	}
 

@@ -3,6 +3,7 @@ package blocks;
 import arc.Events;
 import arc.math.Mathf;
 import content.FxMod;
+import mindustry.Vars;
 import mindustry.entities.Damage;
 import mindustry.game.EventType;
 import mindustry.gen.Sounds;
@@ -23,6 +24,8 @@ public class NuclearImpactReactor extends ImpactReactor {
     public final int timerFuel = timers++;
     public float coolantPower = 0.5f;
     public float smokeThreshold = 0.3f;
+    public int explosionDamage = 2000;
+    public int explosionRadius = 40;
 
 
     public NuclearImpactReactor(String name) {
@@ -85,7 +88,7 @@ public class NuclearImpactReactor extends ImpactReactor {
 
             int fuel = items.get(consumes.<ConsumeItems>get(ConsumeType.item).items[0].item);
 
-            if((fuel < 5 && heat < 0.5f)) return;
+            if((fuel < 5 && heat < 0.5f) && !Vars.state.rules.reactorExplosions) return;
 
             Damage.damage(x, y, explosionRadius * size*8, explosionDamage * 4);
 
