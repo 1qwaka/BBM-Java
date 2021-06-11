@@ -26,12 +26,12 @@ public class FxMod {
             Fill.circle(e.x + x, e.y + y, size/2f);
         });
     }}),
-    nucImpDesEffect = new Effect(30, 500f, b -> {
+    nucImpDesEffect = new Effect(400, 50f, b -> {
         float intensity = 6.8f;
         float baseLifetime = 25f + intensity * 11f;
         b.lifetime = 50f + intensity * 65f;
 
-        Draw.color(Color.valueOf("111111"));
+        Draw.color(Color.valueOf("009605"));
         Draw.alpha(0.7f);
         for(int i = 0; i < 4; i++){
             Mathf.rand.setSeed(b.id*2 + i);
@@ -43,7 +43,7 @@ public class FxMod {
                     float rad = fout * ((2f + intensity) * 2.35f);
 
                     Fill.circle(e.x + x, e.y + y, rad);
-                    Drawf.light(e.x + x, e.y + y, rad * 2.5f, Color.valueOf("111111"), 0.5f);
+                    Drawf.light(e.x + x, e.y + y, rad * 2.5f, Color.valueOf("707070"), 0.5f);
                 });
             });
         }
@@ -56,7 +56,7 @@ public class FxMod {
                 Drawf.light(e.x, e.y, i.fin() * 14f * 2f * intensity, Color.white, 0.9f * e.fout());
             });
 
-            color(Pal.lighterOrange, Color.valueOf("111111"), e.fin());
+            color(Pal.lighterOrange, Color.valueOf("057a09"), e.fin());
             stroke((2f * e.fout()));
 
             Draw.z(Layer.effect + 0.001f);
