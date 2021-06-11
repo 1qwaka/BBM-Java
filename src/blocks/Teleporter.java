@@ -42,20 +42,26 @@ public class Teleporter extends Block {
 		}
 		@Override
 		public void update() {
-			for (int i = 0; i < b.size; i++) {
-				linkRotation = (linkRotation + 1) % b.size;
-				Building build = Vars.world.build(b.get(linkRotation));
-				if(items.first() != null) {
-					Log.info(build.items.first());
-					Log.info(items.get(build.items.first()));
-				} else { Log.info("Null");}
-				if (items.first() != null && build != null) {
-					if (build.acceptItem(this, items.first())) {
-						build.items.add(items.first(), 1);
-						items.remove(items.first(), 1);
-                                                Log.info("True");
+			try {
+				for (int i = 0; i < b.size; i++) {
+					linkRotation = (linkRotation + 1) % b.size;
+					Building build = Vars.world.build(b.get(linkRotation));
+					if (items.first() != null) {
+						Log.info(build.items.first());
+						Log.info(items.get(build.items.first()));
+					} else {
+						Log.info("Null");
+					}
+					if (items.first() != null && build != null) {
+						if (build.acceptItem(this, items.first())) {
+							build.items.add(items.first(), 1);
+							items.remove(items.first(), 1);
+							Log.info("True");
+						}
 					}
 				}
+			} catch (Exception e){
+
 			}
 		}
 		@Override
