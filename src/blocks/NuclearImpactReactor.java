@@ -4,12 +4,15 @@ import arc.Events;
 import arc.math.Mathf;
 import content.FxMod;
 import mindustry.content.Liquids;
+import mindustry.entities.Damage;
 import mindustry.game.EventType;
+import mindustry.gen.Sounds;
 import mindustry.graphics.Pal;
 import mindustry.type.Item;
 import mindustry.type.Liquid;
 import mindustry.ui.Bar;
 import mindustry.world.blocks.power.ImpactReactor;
+import mindustry.world.consumers.ConsumeItems;
 import mindustry.world.consumers.ConsumeLiquid;
 import mindustry.world.consumers.ConsumeType;
 
@@ -75,6 +78,19 @@ public class NuclearImpactReactor extends ImpactReactor {
                 kill();
                 FxMod.nucImpSmoEffect.at(x + t, y + t);
             }
+        }
+        @Override
+        public void onDestroyed(){
+            super.onDestroyed();
+            Sounds.explosionbig.at(tile);
+
+            int fuel = items.get(consumes.<ConsumeItems>get(ConsumeType.item).items[0].item);
+
+            if((fuel < 5 && heat < 0.5f)) return;
+
+            Damage.damage(x, y, explosionRadius * size*8, explosionDamage * 4);
+
+            FxMod.nucImpDesEffect.at(x, y);
         }
     }
 }
