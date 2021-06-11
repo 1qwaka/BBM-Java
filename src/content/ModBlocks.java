@@ -4,6 +4,7 @@ package content;
 import blocks.NuclearImpactReactor;
 import blocks.Teleporter;
 import mindustry.content.Items;
+import mindustry.content.Liquids;
 import mindustry.ctype.ContentList;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -23,8 +24,10 @@ public class ModBlocks implements ContentList{
 		}};
 		NuclearImpactReactor nuclearImpactReactor = new NuclearImpactReactor("nuclearImpactReactor") {{
 			health = 1000;
-			update = true;
+			consumes.item(Items.thorium);
+			consumes.power(12);
 			requirements(Category.power, ItemStack.with(Items.phaseFabric, 5, Items.silicon, 7, Items.lead, 10, Items.graphite, 10));
+			consumes.liquid(Liquids.cryofluid, heating / coolantPower).update(false);
 		}};
 	}
 
