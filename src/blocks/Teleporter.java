@@ -75,7 +75,7 @@ public class Teleporter extends Block {
 					Drawf.circles(build.x, build.y, (build.block.size / 2 + 1) * Vars.tilesize + sin - 2, Pal.place);
 				}
 			} catch (Exception e){
-
+				Log.info(e);
 			}
 
 		}
