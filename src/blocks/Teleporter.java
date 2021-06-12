@@ -96,8 +96,9 @@ public class Teleporter extends Block {
  if(b.size == 0 || this == source){ 
  items.add(item,1); 
  return; 
- } 
- if(Vars.world.build(b.get(linkRotation%b.size)).acceptItem(source, item)){ 
+ }
+ 
+ if(Vars.world.build(b.get(linkRotation%b.size)) != null && Vars.world.build(b.get(linkRotation%b.size)).acceptItem(source, item)){ 
  Vars.world.build(b.get(linkRotation%b.size)).handleItem(source instanceof TeleporterBuild ? source : this, item); 
  } else { 
  items.add(item,1); 
