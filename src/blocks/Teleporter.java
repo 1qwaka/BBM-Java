@@ -28,7 +28,7 @@ public class Teleporter extends Block {
  b.add(point); 
  } 
  
- [id384774802|@Override] 
+ @Override
  public boolean onConfigureTileTapped(Building other) { 
  if (this.pos() != other.pos()) { 
  this.configure(other.pos()); 
@@ -39,7 +39,7 @@ public class Teleporter extends Block {
  return true; 
  } 
  
- [id384774802|@Override] 
+ @Override
  public void update() { 
 // if(items.first()!=null)print(items.first(),items.get(items.first())); 
 // print("proximity:", proximity.size); 
@@ -68,7 +68,7 @@ public class Teleporter extends Block {
  
  } 
  
- [id384774802|@Override] 
+ @Override
  public void drawConfigure() { 
  try { 
  super.drawConfigure(); 
