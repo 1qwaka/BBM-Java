@@ -26,7 +26,7 @@ public class FxMod {
             Fill.circle(e.x + x, e.y + y, size/2f);
         });
     }}),
-    nucImpDesEffect = new Effect(400, 50f, b -> {
+    nucImpDesEffect = new Effect(240, 50f, b -> {
         float intensity = 6.8f;
         float baseLifetime = 25f + intensity * 11f;
         b.lifetime = 50f + intensity * 65f;
