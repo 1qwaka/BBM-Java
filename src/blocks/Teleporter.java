@@ -145,6 +145,7 @@ public class Teleporter extends Block {
 			Vars.world.build(b.get(linkRotation)).handleItem(this, item);
 
 			linkRotation = (linkRotation + 1) % b.size;
+              Log.info("Я вызываюсь сам, без update");
 
 		}
 
