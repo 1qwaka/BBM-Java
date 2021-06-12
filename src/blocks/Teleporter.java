@@ -57,11 +57,13 @@ public class Teleporter extends Block {
  
  int rot = this.linkRotation; 
  for (int i = 0; i < b.size; i++) { 
- Building build = Vars.world.build(b.get((i + rot) % b.size)); 
+ Building build = Vars.world.build(b.get((i + rot) % b.size));
+ if(build != null){ 
  if (build.acceptItem(this, items.first())) { 
  build.handleItem(this, items.first()); 
  items.remove(items.first(),1); 
- linkRotation = (linkRotation+1)%b.size; 
+ linkRotation = (linkRotation+1)%b.size;
+}
  } 
  } 
  linkRotation = (linkRotation+1)%b.size; 
