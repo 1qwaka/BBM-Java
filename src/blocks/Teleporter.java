@@ -108,8 +108,11 @@ public class Teleporter extends Block {
  @Override
  public boolean acceptItem(Building source, Item item) { 
 // print("acceptItem:", item, items.get(item));
- if(item != null)
- return items.get(item) < getMaximumAccepted(item); 
+ if(item != null) {
+ return items.get(item) < getMaximumAccepted(item);
+ } else {
+return false;
+}
  } 
  } 
 }
