@@ -84,7 +84,7 @@ public class Teleporter extends Block {
  
  } 
  
- [id384774802|@Override] 
+ @Override
  public void handleItem(Building source, Item item) { 
  if(b.size == 0 || this == source){ 
  items.add(item,1); 
