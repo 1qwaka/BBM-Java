@@ -1,3 +1,5 @@
+package blocks;
+
 import arc.math.Mathf; 
 import arc.struct.Seq; 
 import arc.util.Time; 
@@ -7,8 +9,6 @@ import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal; 
 import mindustry.type.Item; 
 import mindustry.world.Block; 
- 
-import static mod.DPSmeterMod.print; 
  
 public class Teleporter extends Block { 
  public Teleporter(String name) { 
