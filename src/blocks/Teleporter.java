@@ -75,10 +75,11 @@ public class Teleporter extends Block {
  try { 
  super.drawConfigure(); 
  float sin = Mathf.absin(Time.time, 6, 1); 
- Drawf.circles(this.x, this.y, (this.block.size / 2f + 1) * Vars.tilesize + sin - 2); 
+ Lines.square(this.x, this.y, (this.block.size / 2f + 1) * Vars.tilesize + sin - 2); 
  for (int i = 0; i < b.size; i++) { 
- Building build = Vars.world.build(b.get(i)); 
- Drawf.circles(build.x, build.y, (build.block.size / 2f + 1) * Vars.tilesize + sin - 2, Pal.place); 
+ Building build = Vars.world.build(b.get(i));
+Draw.color(Pal.accent); 
+ Lines.square(build.x, build.y, (build.block.size / 2f + 1) * Vars.tilesize + sin - 2); 
  } 
  } catch (Exception e) { 
  
