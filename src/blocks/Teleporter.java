@@ -86,7 +86,7 @@ public class Teleporter extends Block {
 
 				for(int i = 0; i <= b.size; i++){
 
-                Building build = vars.world.build(b.get(i));
+                Building build = Vars.world.build(b.get(i));
 
                 Log.info(items.get(Items.copper));
 
