@@ -98,7 +98,7 @@ public class Teleporter extends Block {
  linkRotation = (linkRotation+1)%b.size; 
  } 
  
- [id384774802|@Override] 
+ @Override
  public boolean acceptItem(Building source, Item item) { 
 // print("acceptItem:", item, items.get(item)); 
  return items.get(item) < getMaximumAccepted(item); 
