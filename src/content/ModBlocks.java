@@ -31,6 +31,15 @@ public class ModBlocks implements ContentList{
 			powerProduction = 15;
 			size = 6;
 		}};
+                Teleporter pteleporter = new Teleporter("progressive-teleporter"){{
+health = 150;
+update = true;
+hasItems = true;
+maxLink = 5;
+configurable = true;
+			itemCapacity = 100;
+			requirements(Category.distribution, ItemStack.with(Items.phaseFabric, 5, Items.silicon, 7, Items.lead, 10, Items.graphite, 10));
+		}};
 	}
 
 }
