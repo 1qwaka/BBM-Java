@@ -20,7 +20,8 @@ public class Teleporter extends Block {
  } 
  
  public class TeleporterBuild extends Building { 
- public int linkRotation = 0; 
+ public int linkRotation = 0;
+ public int maxLink = 3;
  Seq<Integer> b = new Seq<>(); 
  
  public void addLink(int point) { 
@@ -28,7 +29,7 @@ public class Teleporter extends Block {
  b.remove(b.indexOf(point)); 
  return; 
  }
- if(b.size >2) return;
+ if(b.size > maxLink-1) return;
  b.add(point); 
  } 
  
