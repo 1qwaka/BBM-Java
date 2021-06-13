@@ -3,6 +3,7 @@ package blocks;
 import arc.math.Mathf; 
 import arc.struct.Seq; 
 import arc.util.Time;
+import arc.*;
 import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.Draw;
 import mindustry.Vars;
@@ -30,8 +31,12 @@ public class Teleporter extends Block {
  @Override
  public void setBars(){
  	super.setBars();
-     bars.add("connections", barq -> new Bar(() -> Core.bundle.format("bar.powerlines", barq.b.size-1, maxLink), () -> Pal.accent, ()-> (float)barq.b.size / (float)maxLink));
- }
+     bars.add("connections", (TeleporterBuild barq) -> new Bar(() -> 
+ Core.bundle.format("bar.powerlines", barq.b.size-1, 4), 
+ () -> Pal.accent, 
+ ()-> (float)barq.b.size / (float)4 
+ ));
+}
  
  public class TeleporterBuild extends Building { 
  public int linkRotation = 0;
