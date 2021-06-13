@@ -24,16 +24,17 @@ public class Teleporter extends Block {
  Seq<Integer> b = new Seq<>(); 
  
  public void addLink(int point) { 
- if (b.contains(point) || b.size >3) { 
+ if (b.contains(point)) { 
  b.remove(b.indexOf(point)); 
  return; 
- } 
+ }
+ if(b.size >2) return;
  b.add(point); 
  } 
  
  @Override
  public boolean onConfigureTileTapped(Building other) { 
- if (this.pos() != other.pos() && this.team == other.team && this.block.getContentType() == other.block.getContentType()) { 
+ if (this.pos() != other.pos() && this.team == other.team && this.block.name == other.block.bame) { 
  this.configure(other.pos()); 
  return false; 
  } else if (this.block.name.equals(other.block.name)) { 
