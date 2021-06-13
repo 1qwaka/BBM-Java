@@ -11,6 +11,7 @@ import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal; 
 import mindustry.type.Item; 
 import mindustry.world.Block;
+import mindustry.world.meta.*;
  
  
 public class Teleporter extends Block {
