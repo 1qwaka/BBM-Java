@@ -34,7 +34,7 @@ public class Teleporter extends Block {
  
  @Override
  public boolean onConfigureTileTapped(Building other) { 
- if (this.pos() != other.pos() && this.team == other.team && this.block.name == other.block.bame) { 
+ if (this.pos() != other.pos() && this.team == other.team && this.block.name == other.block.name) { 
  this.configure(other.pos()); 
  return false; 
  } else if (this.block.name.equals(other.block.name)) { 
