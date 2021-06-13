@@ -20,6 +20,17 @@ public class Teleporter extends Block {
  config(Integer.class, (TeleporterBuild tile, Integer point) -> tile.addLink(point)); 
  } 
  
+ @Override
+ public void setStats(){
+ 	super.setStats();
+     stats.add(Stat.powerConnections, maxLink-1, StatUnit.none);
+ }
+ @Override
+ public void setBars(){
+ 	super.setBars();
+     bars.add("connections", b -> new Bar((), -> Core.bundle.format("bar.powerlines", b.size-1, maxLink), () -> Pal.accent, ()-> (float)b.size / (float)maxLink));
+ }
+ 
  public class TeleporterBuild extends Building { 
  public int linkRotation = 0;
  Seq<Integer> b = new Seq<>(); 
