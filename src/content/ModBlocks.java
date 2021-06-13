@@ -11,7 +11,7 @@ import mindustry.type.ItemStack;
 import mindustry.world.Block;
 
 public class ModBlocks implements ContentList{
-	public static Block teleporter, nuclearImpactReactor;
+	public static Block teleporter, nuclearImpactReactor, pteleporter;
 	@Override
 	public void load() {
 		Teleporter teleporter = new Teleporter("teleporter") {{
