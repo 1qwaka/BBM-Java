@@ -24,7 +24,7 @@ public class Teleporter extends Block {
  Seq<Integer> b = new Seq<>(); 
  
  public void addLink(int point) { 
- if (b.contains(point)) { 
+ if (b.contains(point) || b.size >3) { 
  b.remove(b.indexOf(point)); 
  return; 
  } 
