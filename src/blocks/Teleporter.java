@@ -28,7 +28,7 @@ public class Teleporter extends Block {
  @Override
  public void setBars(){
  	super.setBars();
-     bars.add("connections", barq -> new Bar((), -> Core.bundle.format("bar.powerlines", barq.b.size-1, maxLink), () -> Pal.accent, ()-> (float)b.size / (float)maxLink));
+     bars.add("connections", barq -> new Bar(() -> Core.bundle.format("bar.powerlines", barq.b.size-1, maxLink), () -> Pal.accent, ()-> (float)b.size / (float)maxLink));
  }
  
  public class TeleporterBuild extends Building { 
