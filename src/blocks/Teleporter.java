@@ -13,7 +13,8 @@ import mindustry.type.Item;
 import mindustry.world.Block;
  
  
-public class Teleporter extends Block { 
+public class Teleporter extends Block {
+ public int maxLink = 3;
  public Teleporter(String name) { 
  super(name); 
  config(Integer.class, (TeleporterBuild tile, Integer point) -> tile.addLink(point)); 
@@ -21,7 +22,6 @@ public class Teleporter extends Block {
  
  public class TeleporterBuild extends Building { 
  public int linkRotation = 0;
- public int maxLink = 3;
  Seq<Integer> b = new Seq<>(); 
  
  public void addLink(int point) { 
