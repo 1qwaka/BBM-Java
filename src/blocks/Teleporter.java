@@ -32,9 +32,9 @@ public class Teleporter extends Block {
  public void setBars(){
  	super.setBars();
      bars.add("connections", (TeleporterBuild barq) -> new Bar(() -> 
- Core.bundle.format("bar.powerlines", barq.b.size-1, 4), 
+ Core.bundle.format("bar.powerlines", barq.b.size, maxLink), 
  () -> Pal.accent, 
- ()-> (float)barq.b.size / (float)4 
+ ()-> (float)barq.b.size / (float)maxLink 
  ));
 }
  
