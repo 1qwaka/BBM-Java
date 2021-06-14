@@ -57,7 +57,7 @@ public class Teleporter extends Block {
  this.configure(other.pos()); 
  return false; 
  } else if (this.block.name.equals(other.block.name)) { 
- return false; 
+ return true; 
  } 
  return true; 
  } 
